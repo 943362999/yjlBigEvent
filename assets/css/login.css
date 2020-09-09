@@ -1,0 +1,39 @@
+/* 表单容器 */
+.login-reg-box {
+    height: 310px;
+    width: 400px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
+
+.title-box {
+    background: url('../images/login_title.png') no-repeat center;
+    height: 60px;
+}
+
+.reg-box {
+    display: none;
+}
+
+.links {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.layui-form-item {
+    position: relative;
+}
+
+.layui-form-item i {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.layui-input {
+    padding-left: 32px;
+}
