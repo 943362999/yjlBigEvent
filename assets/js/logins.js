@@ -7,6 +7,7 @@ $(function () {
     $("#reg-box").hide();
     $("#login-box").show();
   });
+  console.log($("#reg-psd"));
   layui.form.verify({
     username: function (value) {
       //value：表单的值、item：表单的DOM对象
@@ -48,11 +49,12 @@ $(function () {
       // 4. 处理响应
       console.log(res);
       if (res.status === 1) {
-        console.log(res.message);
+        layer.msg(res.message);
       } else {
-        console.log(res.message);
+        layer.msg(res.message);
       }
       alert("什么逼玩应");
+
     });
   });
 });
