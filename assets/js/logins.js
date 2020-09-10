@@ -53,8 +53,26 @@ $(function () {
       } else {
         layer.msg(res.message);
       }
-      alert("什么逼玩应");
 
     });
   });
+  // 登录请求
+  $('#btn-login').submit(function (e) {
+
+    console.log(1111);
+    e.preventDefault()
+    var formdata = $(this).serialize();
+    $.post('http://ajax.frontend.itheima.net/api/login', formdata, function (res) {
+      if (res.status === 0) {
+        // window.location.href = '/index.html'
+        res.token.length !== 0 &&
+          window.localStorage.setItem('token', res.token)
+      }
+      layui.layer.msg(res.message)
+    })
+
+
+
+  })
+
 });
