@@ -3,8 +3,10 @@ var token = window.localStorage.getItem('token') || ''
 //1. 公共的 baseUrl
 //请求拦截器
 $.ajaxPrefilter(function (options) {
-    options.url =
+    options.url = 'http://ajax.frontend.itheima.net' + options.url
 
-
+    options.headers = {
+        Authorization: token,
+    }
 
 })

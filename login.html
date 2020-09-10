@@ -21,27 +21,19 @@
     <div class="title-box"></div>
     <!-- 登录框盒子 -->
     <div class="login-box" id="login-box">
-      <!-- 表单用户名 -->
-<<<<<<< HEAD
       <form class="layui-form" id="btn-login">
-=======
-      <form class="layui-form">
->>>>>>> index
         <div class="layui-form-item">
           <i class="layui-icon layui-icon-username"></i>
           <input type="text" name="username" required lay-verify="required" placeholder="请输入用户名" autocomplete="off"
             class="layui-input" />
         </div>
-
-        <!-- 密码 -->
-
         <div class="layui-form-item">
           <i class="layui-icon layui-icon-password"></i>
           <input type="password" name="password" required lay-verify="required|password" placeholder="请输入密码"
             autocomplete="off" class="layui-input" />
         </div>
         <div class="layui-form-item">
-          <button type="button" class="layui-btn layui-btn-fluid layui-btn-normal" lay-submits>
+          <button class="layui-btn layui-btn-fluid layui-btn-normal" lay-submit>
             立即登录
           </button>
         </div>
@@ -50,9 +42,10 @@
         </div>
       </form>
     </div>
+
     <!-- 注册盒子 -->
     <div class="reg-box" id="reg-box">
-      <form class="layui-form">
+      <form class="layui-form" id="btn-reg">
         <div class="layui-form-item">
           <i class="layui-icon layui-icon-username"></i>
           <input id="reg-username" type="text" name="username" required lay-verify="required|username"
@@ -82,6 +75,7 @@
   </div>
   <script src="./assets/lib/jquery.js"></script>
   <script src="./assets/lib/layui/layui.all.js"></script>
+  <script src="./assets/js/utils.js"></script>
   <script src="./assets/js/logins.js"></script>
 </body>
 

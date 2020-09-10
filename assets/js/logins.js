@@ -7,7 +7,7 @@ $(function () {
     $("#reg-box").hide();
     $("#login-box").show();
   });
-  console.log($("#reg-psd"));
+
   layui.form.verify({
     username: function (value) {
       //value：表单的值、item：表单的DOM对象
@@ -32,47 +32,44 @@ $(function () {
     },
   });
   //注册请求--------------------
-  $(".layui-form").on("submit", function (e) {
+  $("#btn-reg").on("submit", function (e) {
     e.preventDefault();
     var username = $("#reg-username").val();
     var password = $("#reg-psd").val();
-
-    console.log(username, password);
     var formdata = {
       username: username,
       password: password,
     };
     // 3. 发送请求
-    $.post("http://ajax.frontend.itheima.net/api/reguser", formdata, function (
-      res
-    ) {
+    $.post("/api/reguser", formdata, function (res) {
       // 4. 处理响应
       console.log(res);
       if (res.status === 1) {
         layer.msg(res.message);
       } else {
         layer.msg(res.message);
+        $("#login-reg").click();
+
       }
+      $.ajax({
+        type: 'post',
+        url: "/api/reguser",
+      })
+
 
     });
   });
   // 登录请求
-  $('#btn-login').submit(function (e) {
-
-    console.log(1111);
-    e.preventDefault()
+  $("#btn-login").on("submit", function (e) {
+    e.preventDefault();
     var formdata = $(this).serialize();
-    $.post('http://ajax.frontend.itheima.net/api/login', formdata, function (res) {
+    $.post("/api/login", formdata, function (res) {
       if (res.status === 0) {
-        // window.location.href = '/index.html'
+        window.location.href = "/index.html";
         res.token.length !== 0 &&
-          window.localStorage.setItem('token', res.token)
+          window.localStorage.setItem("token", res.token);
       }
-      layui.layer.msg(res.message)
-    })
-
-
-
-  })
-
-});
+      layui.layer.msg(res.message);
+    });
+  });
+})
