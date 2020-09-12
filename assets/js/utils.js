@@ -9,14 +9,10 @@ $.ajaxPrefilter(function (options) {
         Authorization: token,
     }
     options.complete = function (res) {
-        console.log(res);
         if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
 
             window.localStorage.removeItem('token')
             window.location.href = '/login.html'
-            console.log("失败");
-        } else {
-            console.log('成功');
-        }
+        } else {}
     }
 })
